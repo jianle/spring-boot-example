@@ -27,13 +27,7 @@ public class IndexController {
     @ResponseBody
     public String hello(HttpSession session) {
 
-        UUID uid = (UUID) session.getAttribute("uid");
-        if (uid == null) {
-            uid = UUID.randomUUID();
-        }
-
-        session.setAttribute("uid", uid);
-
+        UUID uid = UUID.randomUUID();
         return "hello world." + "[" + uid.toString() + "]";
     }
 
